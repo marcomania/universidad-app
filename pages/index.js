@@ -20,8 +20,6 @@ export default function Home() {
       fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}/getCourses`).then(response => response.json()).then(data=>{
           setCourses(data.data)
       })
-
-      getInfoPer()
   }
 
 
@@ -47,9 +45,8 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
-          <button onClick={getcourses} >Obtener</button>          
+          <button onClick={function(event){ getcourses(); getInfoPer()}} >Obtener</button>          
           {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>  <List data={InfoPer}/> </>  ):null}
-          
           
         </div>
       </main>
