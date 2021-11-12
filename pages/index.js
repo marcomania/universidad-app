@@ -45,8 +45,8 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
-          <button onClick={function(event){ getcourses(); getInfoPer()}} >Obtener</button>          
-          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>  <List data2={InfoPer}/> </>  ):null}
+          <button onClick={getInfoPer()} >Obtener</button>          
+          {InfoPer!=null?(<><List data={InfoPer}/> <p>PROMEDIO: {getProm()}</p>  </>  ):null}
           
         </div>
       </main>
