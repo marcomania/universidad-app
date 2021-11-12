@@ -23,7 +23,8 @@ export default function Home() {
      aux = aux + c.CREDITO
     })
 
-    return round(temp/aux, 2)
+    return Math.round((temp/aux)).toFixed(2) ;
+
   }
 
   return (
