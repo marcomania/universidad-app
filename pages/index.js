@@ -23,7 +23,7 @@ export default function Home() {
      aux = aux + c.CREDITO
     })
 
-    return temp/aux
+    return round(temp/aux, 2)
   }
 
   return (
@@ -36,8 +36,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <div>
-          <input type="text" placeholder="Prueba" onChange={onChangeHandler} value={search}></input>
-          <button onClick={getcourses} >Revisar</button>          
+          <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
+          <button onClick={getcourses} >Obtener</button>          
           {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p> </>):null}
           
         </div>
