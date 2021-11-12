@@ -11,8 +11,8 @@ export default function Home() {
   }
 
   const getInfoPer=()=>{
-    fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}`).then(response => response.json()).then(data2=>{
-        setInfoPer(data2.data)
+    fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}`).then(response => response.json()).then(data=>{
+        setInfoPer(data.data)
     })
 }
   
