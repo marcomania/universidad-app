@@ -46,7 +46,7 @@ export default function Home() {
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
           <button onClick={() => { getcourses(); getInfoPer();}} >Obtener</button>          
-          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>   </>  ):null}
+          {courses!=null?(<><p>NOMALU: {InfoPer.NOMALU} </p> <List data={courses}/> <p>PROMEDIO: {getProm()}</p>   </>  ):null}
           
         </div>
       </main>
