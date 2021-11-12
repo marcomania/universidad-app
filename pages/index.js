@@ -11,8 +11,8 @@ export default function Home() {
   }
 
   const getInfoPer=()=>{
-    fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}`).then(response => response.json()).then(data=>{
-        setInfoPer(data.data)
+    fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}`).then(response => response.json()).then(data2=>{
+        setInfoPer(data2.data)
     })
 }
   
@@ -46,7 +46,7 @@ export default function Home() {
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
           <button onClick={function(event){ getcourses(); getInfoPer()}} >Obtener</button>          
-          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>  <List data={InfoPer}/> </>  ):null}
+          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>  <List data2={InfoPer}/> </>  ):null}
           
         </div>
       </main>
