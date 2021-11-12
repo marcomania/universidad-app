@@ -45,8 +45,8 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
-          <button onClick={getInfoPer()} >Obtener</button>          
-          {InfoPer!=null?(<><List data={InfoPer}/> <p>PROMEDIO: {getProm()}</p>  </>  ):null}
+          <button onClick={() => { getcourses(); getInfoPer();}} >Obtener</button>          
+          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>   </>  ):null}
           
         </div>
       </main>
@@ -60,8 +60,6 @@ export default function Home() {
 
 
 const List=({data})=>{
-
-
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
