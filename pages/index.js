@@ -5,14 +5,23 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const [search,setSearch] = useState('')
   const [courses,setCourses] = useState(null)
+  const [InfoPer,setInfoPer] = useState(null)
   const onChangeHandler=(e)=>{
     setSearch(e.target.value.toUpperCase())
   }
 
+  const getInfoPer=()=>{
+    fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}`).then(response => response.json()).then(data=>{
+        setInfoPer(data.data)
+    })
+}
+  
   const getcourses=()=>{
       fetch(`https://api-universidad-jmc.herokuapp.com/students/${search}/getCourses`).then(response => response.json()).then(data=>{
           setCourses(data.data)
       })
+
+      getInfoPer()
   }
 
 
@@ -39,7 +48,8 @@ export default function Home() {
         <div>
           <input type="text" placeholder="Ingrese codigo (Ej:AOO1)" onChange={onChangeHandler} value={search}></input>
           <button onClick={getcourses} >Obtener</button>          
-          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p> </>):null}
+          {courses!=null?(<><List data={courses}/> <p>PROMEDIO: {getProm()}</p>  <List data={InfoPer}/> </>  ):null}
+          
           
         </div>
       </main>
